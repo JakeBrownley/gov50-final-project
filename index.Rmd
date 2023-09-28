@@ -12,4 +12,5 @@ output:
 ## Project thoughts
 
 I am interested in exploring data related to...
-campaign ad effectiveness, international aid spent by the US, crime rates in major US cities, spending of leaders in under devloped countries, and the economics of the 2024 MLB season
+
+campaign ad effectiveness, international aid spent by the US, crime rates in major US cities, spending of leaders in under developed countries, and the economics of the 2024 MLB season. These interests stem from my intrigue in government elections, public policies, international relations, and sports. 
