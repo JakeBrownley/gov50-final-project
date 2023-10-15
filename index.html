@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["air_quality_file.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1519,7 +1519,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h2 id="project-thoughts">Project thoughts</h2>
 <p>I am interested in exploring data related to…</p>
-<p>campaign ad effectiveness, international aid spent by the US, crime rates in major US cities, spending of leaders in under developed countries, and the economics of the 2024 MLB season. These interests stem from my intrigue in government elections, public policies, international relations, and sports.</p>
+<p>campaign ad effectiveness, international aid spent by the US, crime rates in major US cities, spending of leaders in under developed countries, the economics of the 2024 MLB season, and air and sea pollution in the United States. These interests stem from my intrigue in government elections, public policies, international relations, and sports.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>df</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"air_quality_file.csv"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>The dataset I will be using is the City of New York Air Quality Data Catalog. In interpreting this data, I will look to answer the following research question, does the population of New York City directly affect it’s air quality? I hypothesize that as the population of New York City increases the quality of air decreases. As the population increases, I expect more harmful gases to be put into the atmosphere through vehicles, homes, factories, and individual citizens. The explanatory variable of interest is th quality of air at certain years. The air quality of New York City is measured by calculating the ozone, fine particles, black carbon, nitric oxide, nitrogen dioxide, and sulfur dioxide. The outcome variable of interest is the average air quality measured each year in New York City. This is measured by using the air quality measurements and cross comparing them with the population of New York City in that given year. If the air quality worsens as the population rises, then my hypothesis proves correct; however, if the air quality remains the same, or improves as the population rises, then my hypothesis proves incorrect.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
