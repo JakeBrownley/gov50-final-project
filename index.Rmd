@@ -30,7 +30,7 @@ view(nba_salaries)
 ```{r}
 library(ggplot2)
 library(tidyverse)
-library(plotly)
+library(plotly)s
 
 nba_salaries1 <- read_csv("nba_salaries.csv") |>
   slice_max(Salary, n = 100) |>
