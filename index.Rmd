@@ -20,3 +20,30 @@ df = read.csv("air_quality_file.csv")
 ```
 
 The dataset I will be using is the City of New York Air Quality Data Catalog. In interpreting this data, I will look to answer the following research question, does the population of New York City directly affect it's air quality? I hypothesize that as the population of New York City increases the quality of air decreases. As the population increases, I expect more harmful gases to be put into the atmosphere through vehicles, homes, factories, and individual citizens. The explanatory variable of interest is th quality of air at certain years. The air quality of New York City is measured by calculating the ozone, fine particles, black carbon, nitric oxide, nitrogen dioxide, and sulfur dioxide. The outcome variable of interest is the average air quality measured each year in New York City. This is measured by using the air quality measurements and cross comparing them with the population of New York City in that given year. If the air quality worsens as the population rises, then my hypothesis proves correct; however, if the air quality remains the same, or improves as the population rises, then my hypothesis proves incorrect. 
+
+```{r}
+install.packages("plotly")
+```
+
+
+```{r}
+library(readr)
+nba_salaries <- read_csv("nba_salaries.csv") |>
+  slice_max(Salary, n = 100)
+view(nba_salaries)
+```
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(plotly)
+s
+nba_salaries1 <- read_csv("nba_salaries.csv") |>
+  slice_max(Salary, n = 100) |>
+  ggplot(data = nba_salaries, mapping = aes(x = Salary , y = GP)) +
+  geom_point() + geom_smooth() +
+  labs(x = "Top 20 NBA Salaries 2022-2023", y = "Games Played", title = "Correlation Between Pay and Games Played in the NBA")
+
+ggplotly(nba_salaries1)
+```
+
