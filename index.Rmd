@@ -7,24 +7,18 @@ output:
     self_contained: false
 ---
 
-
-
 ## Project thoughts
 
 I am interested in exploring data related to...
 
-campaign ad effectiveness, international aid spent by the US, crime rates in major US cities, spending of leaders in under developed countries, the economics of the 2024 MLB season, and air and sea pollution in the United States. These interests stem from my intrigue in government elections, public policies, international relations, and sports. 
+campaign ad effectiveness, international aid spent by the US, crime rates in major US cities, spending of leaders in under developed countries, the economics of the 2022-2023 NBA season, and air and sea pollution in the United States. These interests stem from my intrigue in government elections, public policies, international relations, and sports. 
 
 ```{r}
-df = read.csv("air_quality_file.csv")
+library(tidyverse)
+nba_salaries <- read_csv("nba_salaries.csv")
 ```
 
-The dataset I will be using is the City of New York Air Quality Data Catalog. In interpreting this data, I will look to answer the following research question, does the population of New York City directly affect it's air quality? I hypothesize that as the population of New York City increases the quality of air decreases. As the population increases, I expect more harmful gases to be put into the atmosphere through vehicles, homes, factories, and individual citizens. The explanatory variable of interest is th quality of air at certain years. The air quality of New York City is measured by calculating the ozone, fine particles, black carbon, nitric oxide, nitrogen dioxide, and sulfur dioxide. The outcome variable of interest is the average air quality measured each year in New York City. This is measured by using the air quality measurements and cross comparing them with the population of New York City in that given year. If the air quality worsens as the population rises, then my hypothesis proves correct; however, if the air quality remains the same, or improves as the population rises, then my hypothesis proves incorrect. 
-
-```{r}
-install.packages("plotly")
-```
-
+The dataset I will be using is the NBA 2022-2023 salaries dataset. In today's NBA there is frequent load managing. Load managing is essentially when teams rest their best, more important, most valuable players to ensure their health and production throughout the season. As a result of load managing, I hypothesize that the players who are paid the most actually play less on average than a player paid the league average. The two explanatory variables of interest in this dataset are "Salary" and "GP", or games played. These are both measured quite simply, salary is the amount of money a player is making in a given year, the year being 2022-2023 in this case, and games played is measured by any activity in single game across the 82 game season. The outcome variable of interest is the ratio of pay to games played across different salary types. This is measured by calculating the ratio of both variables to find the average games played per salary type. If this ratio is on the smaller side for more expensive players, then my hypothesis will prove correct. However, if this ratio is on the larger side for more expensive players, then my hypothesis will prove incorrect. 
 
 ```{r}
 library(readr)
@@ -37,12 +31,13 @@ view(nba_salaries)
 library(ggplot2)
 library(tidyverse)
 library(plotly)
-s
+
 nba_salaries1 <- read_csv("nba_salaries.csv") |>
   slice_max(Salary, n = 100) |>
   ggplot(data = nba_salaries, mapping = aes(x = Salary , y = GP)) +
   geom_point() + geom_smooth() +
-  labs(x = "Top 20 NBA Salaries 2022-2023", y = "Games Played", title = "Correlation Between Pay and Games Played in the NBA")
+  labs(x = "Top 20 NBA Salaries 2022-2023", y = "Games Played", 
+       title = "Correlation Between Pay and Games Played in the NBA 2022-2023 Season")
 
 ggplotly(nba_salaries1)
 ```
