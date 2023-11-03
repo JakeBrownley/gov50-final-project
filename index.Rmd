@@ -36,7 +36,7 @@ nba_salaries1 <- read_csv("nba_salaries.csv") |>
   slice_max(Salary, n = 100) |>
   ggplot(data = nba_salaries, mapping = aes(x = Salary , y = GP)) +
   geom_point() + geom_smooth() +
-  labs(x = "Top 20 NBA Salaries 2022-2023", y = "Games Played", 
+  labs(x = "Top 100 NBA Salaries 2022-2023", y = "Games Played", 
        title = "Correlation Between Pay and Games Played in the NBA 2022-2023 Season")
 
 ggplotly(nba_salaries1)
