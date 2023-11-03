@@ -22,7 +22,7 @@ The dataset I will be using is the NBA 2022-2023 salaries dataset. In today's NB
 
 ```{r}
 library(readr)
-nba_salaries <- read_csv("nba_salaries.csv") |>
+nba_salaries <- read_csv("nba_salaries.csv") |> 
   slice_max(Salary, n = 100)
 view(nba_salaries)
 ```
