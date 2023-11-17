@@ -72,7 +72,7 @@ SalaryandGP_comparison_tibble <- tibble(salaries_100,
                                   salaries_101to350,
                                   gamesplayed_101to350)
 SalaryandGP_comparison_tibble
-knitr::kable(group_comparison_tibble)
+knitr::kable(SalaryandGP_comparison_tibble)
 
 ```
 
