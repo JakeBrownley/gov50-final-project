@@ -46,6 +46,8 @@ ggplotly(nba_salaries1)
 
 ## Results From a Single Analysis
 
+Below I have calculated the average salary and amount of games played for two groups: the top 100 highest paid players, and then players ranked by salary 101-350. The result of this calculation will show us two things, who is playing more games on average, and the ratio of salary to games played. 
+
 ```{r}
 salaries_100 <- read_csv("nba_salaries.csv") |>
   slice_max(Salary, n = 100) |>
