@@ -20,6 +20,8 @@ nba_salaries <- read_csv("nba_salaries.csv")
 
 The dataset I will be using is the NBA 2022-2023 salaries dataset. In today's NBA there is frequent load managing. Load managing is essentially when teams rest their best, more important, most valuable players to ensure their health and production throughout the season. As a result of load managing, I hypothesize that the players who are paid the most actually play less on average than a player paid the league average. The two explanatory variables of interest in this dataset are "Salary" and "GP", or games played. These are both measured quite simply, salary is the amount of money a player is making in a given year, the year being 2022-2023 in this case, and games played is measured by any activity in single game across the 82 game season. The outcome variable of interest is the ratio of pay to games played across different salary types. This is measured by calculating the ratio of both variables to find the average games played per salary type. If this ratio is on the smaller side for more expensive players, then my hypothesis will prove correct. However, if this ratio is on the larger side for more expensive players, then my hypothesis will prove incorrect. 
 
+## Data Visualization 
+
 ```{r}
 library(readr)
 nba_salaries <- read_csv("nba_salaries.csv") |> 
@@ -37,8 +39,41 @@ nba_salaries1 <- read_csv("nba_salaries.csv") |>
   ggplot(data = nba_salaries, mapping = aes(x = Salary , y = GP)) +
   geom_point() + geom_smooth() +
   labs(x = "Top 100 NBA Salaries 2022-2023", y = "Games Played", 
-       title = "Correlation Between Pay and Games Played in the NBA 2022-2023 Season")
+       title = "Correlation Between Pay and Games Played in the NBA 2022-2023 Season") 
 
 ggplotly(nba_salaries1)
 ```
+
+## Results From a Single Analysis
+
+```{r}
+salaries_100 <- read_csv("nba_salaries.csv") |>
+  slice_max(Salary, n = 100) |>
+  summarize(salary_mean_100 = mean(Salary))
+salaries_100
+
+gamesplayed_100 <- read_csv("nba_salaries.csv") |>
+  slice_max(GP, n = 100) |>
+  summarize(GP_mean_100 = mean(GP))
+gamesplayed_100
+
+salaries_101to350 <- read_csv("nba_salaries.csv") |>
+  slice_max(Salary, n = 101-350) |>
+  summarize(salary_mean_101to350 = mean(Salary))
+salaries_101to350
+
+gamesplayed_101to350 <- read_csv("nba_salaries.csv") |>
+  slice_max(GP, n = 101-350) |>
+  summarize(GP_mean_101to350 = mean(GP))
+gamesplayed_101to350
+
+SalaryandGP_comparison_tibble <- tibble(salaries_100, 
+                                  gamesplayed_100, 
+                                  salaries_101to350,
+                                  gamesplayed_101to350)
+SalaryandGP_comparison_tibble
+knitr::kable(group_comparison_tibble)
+
+```
+
 
